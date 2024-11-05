@@ -9,8 +9,12 @@
     "jsx": "preserve",
     "noEmit": true,
     "noImplicitAny": false,
-    "noImplicitOverride": false
+    "noImplicitOverride": false,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "declaration": true,
+    "resolveJsonModule": true
   },
   "include": ["./"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }

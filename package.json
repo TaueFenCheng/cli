@@ -5,7 +5,7 @@
   "scripts": {
     "cg": "pnpm changeset",
     "changeset:add": "pnpm changeset add",
-    "changeset:version": "pnpm changeset version",
+    "version": "pnpm changeset version",
     "init": "pnpm changeset init",
     "pb": "pnpm changeset publish"
   }

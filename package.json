@@ -1,5 +1,11 @@
 {
-	"devDependencies": {
-		"@changesets/cli": "^2.27.9"
-	}
+  "devDependencies": {
+    "@changesets/cli": "^2.27.9"
+  },
+  "scripts": {
+    "changeset:add": "pnpm changeset add",
+    "changeset:version": "pnpm changeset version",
+	"init":"pnpm changeset init",
+	"pb":"pnpm changeset publish"
+  }
 }

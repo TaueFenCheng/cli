@@ -3,10 +3,10 @@
     "@changesets/cli": "^2.27.9"
   },
   "scripts": {
-	"cg":"pnpm changeset",
+    "cg": "pnpm changeset",
     "changeset:add": "pnpm changeset add",
     "changeset:version": "pnpm changeset version",
-	"init":"pnpm changeset init",
-	"pb":"pnpm changeset publish"
+    "init": "pnpm changeset init",
+    "pb": "pnpm changeset publish"
   }
 }

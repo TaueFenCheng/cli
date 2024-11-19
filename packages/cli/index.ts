@@ -6,19 +6,19 @@ import inquirer from 'inquirer';
 const program = new Command();
 
 
-function myParseInt(value) {
+function myParseInt(value: string) {
   return parseInt(value, 10);
 }
 
-function increaseVerbosity(value) {
+function increaseVerbosity(value: number) {
   return value + 1;
 }
 
-function collect(value, previous) {
+function collect(value: any, previous: any[]) {
   return previous.concat([value]);
 }
 
-function commaSeparatedList(value) {
+function commaSeparatedList(value: string) {
   return value.split(',');
 }
 

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "removeComments": true,
+    "lib": ["ES2015", "ESNext", "DOM"],
+    "skipLibCheck": false,
+    "jsx": "preserve",
+    "noEmit": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": false,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "declaration": true,
+    "resolveJsonModule": true
+  },
+  "include": ["./"],
+  "exclude": ["node_modules"],
+}

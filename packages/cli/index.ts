@@ -1,29 +1,27 @@
-// CommonJS (.cjs)
-import { Command } from "commander";
 import path from "node:path";
-import fs, { fsyncSync } from "node:fs";
+import fs from "node:fs";
 import inquirer from "inquirer";
-const program = new Command();
+import utils from "node:util";
+import chalk from "chalk";
 
-function myParseInt(value: string) {
-  return parseInt(value, 10);
-}
+const baseProject = `../../projects`;
+const log = console.log
 
-function increaseVerbosity(value: number) {
-  return value + 1;
-}
-
-function collect(value: any, previous: any[]) {
-  return previous.concat([value]);
-}
-
-function commaSeparatedList(value: string) {
-  return value.split(",");
-}
-
-const projectMap = {};
-
-export function inquirerFn(params: any) {
+const projectMap = [
+  {
+    key: "react",
+    projectPath: path.join(baseProject, "/rspack_demo"),
+  },
+  {
+    key: "node",
+    projectPath: path.join(baseProject, "/node_demo"),
+  },
+  {
+    key: "vue",
+    projectPath: path.join(baseProject, "/vite_demo"),
+  },
+];
+export async function inquirerFn(params: any) {
   console.log(params, "命令行参数");
   inquirer
     .prompt([
@@ -36,18 +34,18 @@ export function inquirerFn(params: any) {
         type: "list",
         name: "projectType",
         message: "请选择项目类型:",
-        choices: ["Node.js", "React", "Vue"],
+        choices: ["node", "react", "vue"],
       },
       {
         type: "input",
-        name: "path",
+        name: "pathInput",
         message: "请输入项目路径:",
         default: "./",
       },
     ])
     .then((answers) => {
-      const { projectName, projectType, path } = answers;
-      const projectPath = `${path}/${projectName}`;
+      const { projectName, projectType, pathInput } = answers;
+      const projectPath = `${pathInput}/${projectName}`;
 
       if (!fs.existsSync(projectPath)) {
         fs.mkdirSync(projectPath, { recursive: true });
@@ -55,19 +53,42 @@ export function inquirerFn(params: any) {
           `创建项目: ${projectName} 类型: ${projectType} 在路径: ${projectPath}`
         );
 
+        const copyFile = utils.promisify(fs.copyFile);
+        const copyDir = fs.promises.cp;
+
+        const findPaths = (path: "react" | "node" | "vue") =>
+          projectMap.find((item) => item.key === path).projectPath;
+
         // 根据项目类型创建不同的项目结构
         switch (projectType) {
-          case "Node.js":
-            // 创建Node.js项目结构
-            fs.writeFileSync(`${projectPath}/index.js`, "// Node.js 项目入口");
+          case "react":
+            const sourceDirReact = findPaths(projectType);
+            console.log(sourceDirReact);
+            copyDir(sourceDirReact, `${projectPath}/`, { recursive: true })
+              .then((res) => {
+                log(chalk.red('项目拷贝成功'));
+              })
+              .catch((error) => {
+                // console.error(error);
+                console.log(error);
+              });
             break;
-          case "React":
+          case "node":
             // 创建React项目结构
-            fs.writeFileSync(`${projectPath}/App.js`, "// React 项目入口");
+            fs.writeFileSync(`${projectPath}`, "// React 项目入口");
             break;
-          case "Vue":
+          case "vue":
             // 创建Vue项目结构
-            fs.writeFileSync(`${projectPath}/main.js`, "// Vue 项目入口");
+            const sourceDirVue = findPaths(projectType);
+            console.log(sourceDirVue);
+            copyDir(sourceDirVue, `${projectPath}/`, { recursive: true })
+              .then((res) => {
+                log("项目拷贝成功!");
+              })
+              .catch((error) => {
+                // console.error(error);
+                console.log(error);
+              });
             break;
           default:
             console.log("未知的项目类型");
@@ -84,23 +105,3 @@ export function inquirerFn(params: any) {
       }
     });
 }
-
-// function main() {
-//   program
-//     .option('-f, --float <number>', 'float argument', parseFloat)
-//     .option('-i, --integer <number>', 'integer argument', myParseInt)
-//     .option('-v, --verbose', 'verbosity that can be increased', increaseVerbosity, 0)
-//     .option('-c, --collect <value>', 'repeatable value', collect, [])
-//     .option('-l, --list <items>', 'comma separated list', commaSeparatedList)
-
-//   program.parse();
-
-//   const options = program.opts();
-//   console.log(options);
-//   if (options.float !== undefined) console.log(`float: ${options.float}`);
-//   if (options.integer !== undefined) console.log(`integer: ${options.integer}`);
-//   if (options.verbose > 0) console.log(`verbosity: ${options.verbose}`);
-//   if (options.collect.length > 0) console.log(options.collect);
-//   if (options.list !== undefined) console.log(options.list);
-
-// }

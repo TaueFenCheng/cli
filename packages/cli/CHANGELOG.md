@@ -1,5 +1,11 @@
 # cli
 
+## 1.0.2
+
+### Patch Changes
+
+- 55eb057: 脚手架基础搭建
+
 ## 1.0.1
 
 ### Patch Changes

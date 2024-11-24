@@ -128,7 +128,11 @@ import fs from "node:fs";
 import inquirer from "inquirer";
 import utils from "node:util";
 import chalk from "chalk";
+import ora from "ora";
+import download from "download-git-repo";
+import figlet from "figlet";
 var baseProject = "../../projects";
+var log = console.log;
 var projectMap = [
     {
         key: "react",
@@ -143,7 +147,6 @@ var projectMap = [
         projectPath: path.join(baseProject, "/vite_demo")
     }
 ];
-var log = console.log;
 function inquirerFn(params) {
     return _inquirerFn.apply(this, arguments);
 }
@@ -188,6 +191,7 @@ function _inquirerFn() {
                             return item.key === path2;
                         }).projectPath;
                     };
+                    var spinner = ora("Loading...").start();
                     switch(projectType){
                         case "react":
                             var sourceDirReact = findPaths(projectType);
@@ -195,8 +199,10 @@ function _inquirerFn() {
                             copyDir(sourceDirReact, "".concat(projectPath, "/"), {
                                 recursive: true
                             }).then(function(res) {
+                                spinner.stop();
                                 log(chalk.red("\u9879\u76EE\u62F7\u8D1D\u6210\u529F"));
                             }).catch(function(error) {
+                                spinner.stop();
                                 console.log(error);
                             });
                             break;

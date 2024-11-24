@@ -3,9 +3,34 @@ import fs from "node:fs";
 import inquirer from "inquirer";
 import utils from "node:util";
 import chalk from "chalk";
+import ora from "ora";
+import download from "download-git-repo";
+import figlet from "figlet";
 
 const baseProject = `../../projects`;
-const log = console.log
+const log = console.log;
+
+const downloadFun = function (url: any, project: any) {
+  const spinner = ora("Downloading source...").start();
+
+  download(url, project, { clone: true }, (err: unknown) => {
+    if (!err) {
+      spinner.succeed(chalk.green("Download successful!"));
+      console.log(
+        chalk.yellow(figlet.textSync("Done!", { horizontalLayout: "full" }))
+      );
+      console.log(
+        chalk.blue(`You can start by running:
+cd ${project}
+${chalk.green("npm install")}
+${chalk.green("npm run dev")}`)
+      );
+    } else {
+      spinner.fail(chalk.red("Download failed"));
+      console.error(chalk.red(err));
+    }
+  });
+};
 
 const projectMap = [
   {
@@ -58,6 +83,7 @@ export async function inquirerFn(params: any) {
 
         const findPaths = (path: "react" | "node" | "vue") =>
           projectMap.find((item) => item.key === path).projectPath;
+        const spinner = ora("Loading...").start();
 
         // 根据项目类型创建不同的项目结构
         switch (projectType) {
@@ -66,9 +92,11 @@ export async function inquirerFn(params: any) {
             console.log(sourceDirReact);
             copyDir(sourceDirReact, `${projectPath}/`, { recursive: true })
               .then((res) => {
-                log(chalk.red('项目拷贝成功'));
+                spinner.stop();
+                log(chalk.red("项目拷贝成功"));
               })
               .catch((error) => {
+                spinner.stop();
                 // console.error(error);
                 console.log(error);
               });

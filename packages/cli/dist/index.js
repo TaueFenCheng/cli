@@ -198,7 +198,11 @@ var import_node_fs = __toESM(require("fs"));
 var import_inquirer = __toESM(require("inquirer"));
 var import_node_util = __toESM(require("util"));
 var import_chalk = __toESM(require("chalk"));
+var import_ora = __toESM(require("ora"));
+var import_download_git_repo = __toESM(require("download-git-repo"));
+var import_figlet = __toESM(require("figlet"));
 var baseProject = "../../projects";
+var log = console.log;
 var projectMap = [
     {
         key: "react",
@@ -213,7 +217,6 @@ var projectMap = [
         projectPath: import_node_path.default.join(baseProject, "/vite_demo")
     }
 ];
-var log = console.log;
 function inquirerFn(params) {
     return _inquirerFn.apply(this, arguments);
 }
@@ -258,6 +261,7 @@ function _inquirerFn() {
                             return item.key === path2;
                         }).projectPath;
                     };
+                    var spinner = (0, import_ora.default)("Loading...").start();
                     switch(projectType){
                         case "react":
                             var sourceDirReact = findPaths(projectType);
@@ -265,8 +269,10 @@ function _inquirerFn() {
                             copyDir(sourceDirReact, "".concat(projectPath, "/"), {
                                 recursive: true
                             }).then(function(res) {
+                                spinner.stop();
                                 log(import_chalk.default.red("\u9879\u76EE\u62F7\u8D1D\u6210\u529F"));
                             }).catch(function(error) {
+                                spinner.stop();
                                 console.log(error);
                             });
                             break;

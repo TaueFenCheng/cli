@@ -9,6 +9,12 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = function(target, all) {
+    for(var name in all)__defProp(target, name, {
+        get: all[name],
+        enumerable: true
+    });
+};
 var __copyProps = function(to, from, except, desc) {
     if (from && (typeof from === "undefined" ? "undefined" : _type_of(from)) === "object" || typeof from === "function") {
         var _iteratorNormalCompletion = true, _didIteratorError = false, _iteratorError = undefined;
@@ -50,12 +56,25 @@ var __toESM = function(mod, isNodeMode, target) {
         enumerable: true
     }) : target, mod);
 };
+var __toCommonJS = function(mod) {
+    return __copyProps(__defProp({}, "__esModule", {
+        value: true
+    }), mod);
+};
 // index.ts
+var cli_exports = {};
+__export(cli_exports, {
+    inquirerFn: function() {
+        return inquirerFn;
+    }
+});
+module.exports = __toCommonJS(cli_exports);
 var import_commander = require("commander");
-var import_node_fs = __toESM(require("fs"), 1);
-var import_inquirer = __toESM(require("inquirer"), 1);
+var import_node_fs = __toESM(require("fs"));
+var import_inquirer = __toESM(require("inquirer"));
 var program = new import_commander.Command();
-function inquirerFn() {
+function inquirerFn(params) {
+    console.log(params, "\u547D\u4EE4\u884C\u53C2\u6570");
     import_inquirer.default.prompt([
         {
             type: "input",
@@ -110,5 +129,8 @@ function inquirerFn() {
         }
     });
 }
-inquirerFn();
-//# sourceMappingURL=index.cjs.map
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+    inquirerFn: inquirerFn
+});
+//# sourceMappingURL=index.js.map

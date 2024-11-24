@@ -23,7 +23,8 @@ function commaSeparatedList(value: string) {
 
 const projectMap = {};
 
-function inquirerFn() {
+export function inquirerFn(params: any) {
+  console.log(params, "命令行参数");
   inquirer
     .prompt([
       {
@@ -103,5 +104,3 @@ function inquirerFn() {
 //   if (options.list !== undefined) console.log(options.list);
 
 // }
-
-inquirerFn();

@@ -7,6 +7,9 @@
     "changeset:add": "pnpm changeset add",
     "version": "pnpm changeset version",
     "init": "pnpm changeset init",
-    "pb": "pnpm changeset publish"
+    "pb": "pnpm changeset publish",
+    "build": "pnpm -r --filter='./packages/*' run build",
+    "dev": "pnpm -r --parallel --filter='./projects/*' run dev",
+    "dev:ssrreact": "pnpm -r --parallel --filter='./projects/ssr-react' run dev"
   }
 }

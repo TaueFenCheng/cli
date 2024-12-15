@@ -1,3 +1,9 @@
 packages:
-  - packages/*
-  - projects/*
+  # 指定根目录直接子目录中的包
+  # - 'my-app'
+  # packages/ 直接子目录中的所有包
+  - 'packages/*'
+  # projects / 直接子目录中的所有包
+  - 'projects/*'
+  # 排除测试目录中的包
+  - '!**/test/**'

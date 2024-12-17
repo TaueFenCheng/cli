@@ -11,5 +11,8 @@
     "build": "pnpm -r --filter='./packages/*' run build",
     "dev": "pnpm -r --parallel --filter='./projects/*' run dev",
     "dev:ssrreact": "pnpm -r --parallel --filter='./projects/ssr-react' run dev"
+  },
+  "dependencies": {
+    "react": "^19.0.0"
   }
 }

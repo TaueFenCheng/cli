@@ -5,14 +5,29 @@
     "clientKind": "git",
     "useIgnoreFile": true
   },
-  "files": { "ignoreUnknown": false, "ignore": [] },
+  "files": {
+    "ignore": ["dist/**", "output/**", "node_modules/**"],
+    "ignoreUnknown": true,
+    "include": [
+      "*.js",
+      "*.ts",
+      "*.jsx",
+      "*.tsx",
+      "*.mjs",
+      "*.tjs",
+      "*.json",
+      "*.jsonc",
+      "*.css",
+      ".vscode/"
+    ]
+  },
   "formatter": {
     "enabled": true,
     "indentWidth": 2,
     "formatWithErrors": false,
     "indentStyle": "space",
     "lineEnding": "lf",
-    "lineWidth": 80,
+    "lineWidth": 120,
     "attributePosition": "auto"
   },
   "organizeImports": { "enabled": true },
@@ -20,5 +35,18 @@
     "enabled": true,
     "rules": { "recommended": true }
   },
-  "javascript": { "formatter": { "quoteStyle": "double" } }
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "asNeeded",
+      "bracketSpacing": false,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "jsxQuoteStyle": "double",
+      "quoteStyle": "single",
+      "semicolons": "asNeeded"
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  }
 }

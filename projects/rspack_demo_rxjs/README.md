@@ -5,7 +5,7 @@
 Install the dependencies:
 
 ```bash
-npm install
+pnpm i
 ```
 
 ## Get Started
@@ -13,11 +13,13 @@ npm install
 Start the dev server:
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Build the app for production:
 
 ```bash
-npm run build
+pnpm run build
 ```
+
+### 集成 比biome lightingcss rspack 配置

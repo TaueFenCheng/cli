@@ -4,4 +4,4 @@
 
 ### Patch Changes
 
-- changeset 子包范围包括
+- changeset 子包范围

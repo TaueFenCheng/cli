@@ -1,7 +1,8 @@
 import { defineConfig } from "@rspack/cli";
 import { rspack } from "@rspack/core";
 import * as RefreshPlugin from "@rspack/plugin-react-refresh";
-
+// import autoprefixer from "autoprefixer";
+// import postcssPxtorem from "postcss-pxtorem";
 const isDev = process.env.NODE_ENV === "development";
 
 // Target browsers, see: https://github.com/browserslist/browserslist
@@ -30,8 +31,30 @@ export default defineConfig({
         type: "asset",
       },
       {
-        test: /\.(sass|scss)$/,
+        test: /\.s[a|c]ss$/,
         use: [
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                rootValue: 100,
+                unitPrecision: 5,
+                //   propList: [
+                // "font",
+                // "font-size",
+                // "line-height",
+                // "letter-spacing",
+                // "word-spacing",
+                //   ],
+                propList: ["*"],
+                selectorBlackList: [],
+                replace: true,
+                mediaQuery: false,
+                minPixelValue: 0,
+                exclude: /node_modules/i,
+              },
+            },
+          },
           {
             loader: "sass-loader",
             options: {
@@ -46,7 +69,8 @@ export default defineConfig({
         type: "css/auto",
       },
       {
-        test: /\.(jsx?|tsx?)$/,
+        test: /\.(jsx?|tsx?)$/i,
+        exclude: [/node_modules/],
         use: [
           {
             loader: "builtin:swc-loader",
@@ -79,7 +103,9 @@ export default defineConfig({
   ].filter(Boolean),
   optimization: {
     minimizer: [
+      // 壓縮js代碼
       new rspack.SwcJsMinimizerRspackPlugin(),
+      // 壓縮css代碼
       new rspack.LightningCssMinimizerRspackPlugin({
         minimizerOptions: { targets },
       }),

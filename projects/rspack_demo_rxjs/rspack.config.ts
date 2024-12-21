@@ -8,6 +8,28 @@ const isDev = process.env.NODE_ENV === "development";
 // Target browsers, see: https://github.com/browserslist/browserslist
 const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"];
 
+const commonPx2Rem = {
+  loader: "postcss-loader",
+  options: {
+    postcssOptions: {
+      rootValue: 100,
+      unitPrecision: 5,
+      //   propList: [
+      // "font",
+      // "font-size",
+      // "line-height",
+      // "letter-spacing",
+      // "word-spacing",
+      //   ],
+      propList: ["*"],
+      selectorBlackList: [],
+      replace: true,
+      mediaQuery: false,
+      minPixelValue: 0,
+      exclude: /node_modules/i,
+    },
+  },
+};
 export default defineConfig({
   context: __dirname,
   entry: {
@@ -31,29 +53,18 @@ export default defineConfig({
         type: "asset",
       },
       {
+        test: /\.css$/,
+        use: [
+          {
+            ...commonPx2Rem,
+          },
+        ],
+      },
+      {
         test: /\.s[a|c]ss$/,
         use: [
           {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                rootValue: 100,
-                unitPrecision: 5,
-                //   propList: [
-                // "font",
-                // "font-size",
-                // "line-height",
-                // "letter-spacing",
-                // "word-spacing",
-                //   ],
-                propList: ["*"],
-                selectorBlackList: [],
-                replace: true,
-                mediaQuery: false,
-                minPixelValue: 0,
-                exclude: /node_modules/i,
-              },
-            },
+            ...commonPx2Rem,
           },
           {
             loader: "sass-loader",

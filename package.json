@@ -2,6 +2,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.9"
   },
+  "author": "tangtaue",
   "scripts": {
     "cg": "pnpm changeset",
     "changeset:add": "pnpm changeset add",

@@ -10,7 +10,7 @@
     "build": "tsup"
   },
   "keywords": [],
-  "author": "",
+  "author": "tangtaue",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.7",

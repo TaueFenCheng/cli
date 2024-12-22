@@ -22,3 +22,36 @@ var permute = function(nums) {
     dfs([],flagArr)
     return ret
 };
+
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function(nums) {
+    const res = []
+    const visited = Array(nums.length).fill(false);
+    // let visited = {}
+    function brack(permis){
+        if(permis.length === nums.length){
+            res.push([...permis])
+        }
+        for(let i=0;i<nums.length;i++){
+            // 如果之前选择过 直接跳过
+            if(visited[i]){
+                continue;
+            }
+            // 选择
+            visited[i] = true
+            permis.push(nums[i])
+            // 递归
+            brack(permis)
+
+            // 回溯之后撤销选择
+            visited[i] = false
+            permis.pop()
+        }
+    }
+    brack([])
+    return res
+};

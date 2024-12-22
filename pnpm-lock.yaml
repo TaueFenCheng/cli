@@ -198,6 +198,9 @@ importers:
       sass-loader:
         specifier: ^16.0.4
         version: 16.0.4(@rspack/core@1.1.0)(sass-embedded@1.83.0)(sass@1.83.0)(webpack@5.97.1(@swc/core@1.9.1))
+      ts-checker-rspack-plugin:
+        specifier: ^1.0.3
+        version: 1.0.3(@rspack/core@1.1.0)(typescript@5.7.2)
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@swc/core@1.9.1)(@types/node@22.9.0)(typescript@5.7.2)
@@ -5339,6 +5342,16 @@ packages:
     engines: {node: '>=16'}
     peerDependencies:
       typescript: '>=4.2.0'
+
+  ts-checker-rspack-plugin@1.0.3:
+    resolution: {integrity: sha512-K5BUrytoFju1Olu11T49vlYvDEGOguBF1CBCl4o2ARxDGPoJHHf7fBzLlK0YYkUqI5EFA5cMRUC6332M7hQBHw==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      '@rspack/core': ^1.0.0
+      typescript: '>=3.8.0'
+    peerDependenciesMeta:
+      '@rspack/core':
+        optional: true
 
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
@@ -10939,6 +10952,18 @@ snapshots:
   ts-api-utils@1.4.0(typescript@5.6.3):
     dependencies:
       typescript: 5.6.3
+
+  ts-checker-rspack-plugin@1.0.3(@rspack/core@1.1.0)(typescript@5.7.2):
+    dependencies:
+      '@babel/code-frame': 7.26.2
+      '@rspack/lite-tapable': 1.0.1
+      chokidar: 3.6.0
+      memfs: 4.14.0
+      minimatch: 9.0.5
+      picocolors: 1.1.1
+      typescript: 5.7.2
+    optionalDependencies:
+      '@rspack/core': 1.1.0
 
   ts-interface-checker@0.1.13: {}
 

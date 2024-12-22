@@ -1,6 +1,7 @@
 import { defineConfig } from "@rspack/cli";
 import { rspack } from "@rspack/core";
 import * as RefreshPlugin from "@rspack/plugin-react-refresh";
+const { TsCheckerRspackPlugin } = require('ts-checker-rspack-plugin');
 // import autoprefixer from "autoprefixer";
 // import postcssPxtorem from "postcss-pxtorem";
 const isDev = process.env.NODE_ENV === "development";
@@ -107,11 +108,15 @@ export default defineConfig({
     ],
   },
   plugins: [
+    new TsCheckerRspackPlugin(),
     new rspack.HtmlRspackPlugin({
       template: "./index.html",
     }),
     isDev ? new RefreshPlugin() : null,
   ].filter(Boolean),
+  watchOptions:{
+    ignored: /node_modules/,
+  },
   optimization: {
     minimizer: [
       // 壓縮js代碼

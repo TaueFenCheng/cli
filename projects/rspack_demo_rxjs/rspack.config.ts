@@ -1,6 +1,6 @@
 import { defineConfig } from "@rspack/cli";
 import { rspack } from "@rspack/core";
-import * as RefreshPlugin from "@rspack/plugin-react-refresh";
+import  RefreshPlugin from "@rspack/plugin-react-refresh";
 const { TsCheckerRspackPlugin } = require('ts-checker-rspack-plugin');
 // import autoprefixer from "autoprefixer";
 // import postcssPxtorem from "postcss-pxtorem";

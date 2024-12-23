@@ -9,3 +9,5 @@ export * from "./debounce";
 export * from "./memorize";
 // promise 重試次數
 export * from "./retryPromise";
+// 類型判斷
+export * from "./typesUtils";

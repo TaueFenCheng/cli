@@ -4,7 +4,7 @@
  */
 
 export function compose(fns: Function[]) {
-    return (val: any) => {
-        return fns.reduceRight((arg, fn) => fn(arg), val)
-    }
+  return (val: any) => {
+    return fns.reduceRight((arg, fn) => fn(arg), val);
+  };
 }

@@ -6,7 +6,7 @@
  * @description 實現promise的重試機制 
  * @returns 
  */
-function retryPromise(fn, retries = 3, delay = 1000) {
+export function retryPromise(fn, retries = 3, delay = 1000) {
   return new Promise((resolve, reject) => {
     const attempt = (attemptNumber) => {
       fn()

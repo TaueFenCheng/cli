@@ -4,14 +4,13 @@
  * @description 記憶化函數
  */
 
-export function memorize(fn:Function) {
-    const map = {}
-    return (...args)=>{
-        const key = JSON.stringify(args)
-        if(!map[key]){
-            map[key] = fn(...args)
-        }
-        return map[key]
+export function memorize(fn: Function) {
+  const map = {};
+  return (...args) => {
+    const key = JSON.stringify(args);
+    if (!map[key]) {
+      map[key] = fn(...args);
     }
+    return map[key];
+  };
 }
-

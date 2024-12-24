@@ -1,0 +1,31 @@
+{
+  "name": "web_performance_sdk",
+  "version": "0.0.0",
+  "type": "module",
+  "author": {
+    "name": "tangjiaqiang"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rslib build",
+    "dev": "rslib build --watch"
+  },
+  "devDependencies": {
+    "@rslib/core": "^0.2.0",
+    "@types/node": "^22.8.1",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "web-vitals": "^4.2.4"
+  }
+}

@@ -5,3 +5,11 @@ console.log(onLCP);
 console.log(onFCP);
 console.log(onTTFB);
 console.log(onINP);
+
+export {
+    onCLS,
+    onLCP,
+    onFCP,
+    onTTFB,
+    onINP
+}

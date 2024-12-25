@@ -14,7 +14,7 @@ export default defineConfig({
   // 每次打包先删除dist
   clean: true,
   outDir: "dist",
-  minify: true,
+  // minify: true,
   cjsInterop: true,
   onSuccess: async () => {
     console.log("打包成功!");

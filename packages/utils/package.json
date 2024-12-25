@@ -20,9 +20,6 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "registry": "https://github.com/TaueFenCheng/cli.git"
-  },
   "maintainers": [
     "tangtaue"
   ],

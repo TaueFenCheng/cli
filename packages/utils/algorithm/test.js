@@ -21,7 +21,7 @@ function findMaxConsecutiveChar(str) {
 
   let maxChar = str[0]; // 初始化最多出现的字符
   let maxCount = 1; // 初始化最多出现的次数
-  
+
   let currentChar = str[0]; // 当前字符
   let currentCount = 1; // 当前字符的计数
 
@@ -48,4 +48,25 @@ function findMaxConsecutiveChar(str) {
   }
 
   return { char: maxChar, count: maxCount };
+}
+
+/**
+ * @description 数组转树结构
+ * @param {*} items 
+ * @returns 
+ */
+export function traverse(items = []) {
+  const map = {}
+  items.forEach((item) => {
+    map[item.parentid] = { ...item, children: [] }
+  })
+  const root = []
+  items.forEach((item) => {
+    if (!item.parentid) {
+      root.push(map[item.id])
+    } else {
+      map[item.parentid].children.push(map[item.id])
+    }
+  })
+  return root
 }

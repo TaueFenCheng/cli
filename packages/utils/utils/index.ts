@@ -11,3 +11,5 @@ export * from "./memorize";
 export * from "./retryPromise";
 // 類型判斷
 export * from "./typesUtils";
+
+export { default as eventBus } from "./eventbus.js";

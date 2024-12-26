@@ -1,5 +1,11 @@
 # utils
 
+## 2.0.0
+
+### Major Changes
+
+- git hooks pre-commit 钩子初始化
+
 ## 1.0.2
 
 ### Patch Changes

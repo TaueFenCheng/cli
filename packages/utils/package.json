@@ -28,10 +28,24 @@
   "maintainers": [
     "tangtaue"
   ],
+  "simple-git-hooks": {
+    "commit-msg": "node scripts/verify-commit.js",
+    "pre-commit": "pnpm lint-staged"
+  },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@types/node": "^22.10.2",
+    "lint-staged": "^15.2.2",
+    "simple-git-hooks": "^2.11.0",
     "tsup": "^8.3.5",
     "vitest": "^2.1.8"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
+      "biome lint --write --no-errors-on-unmatched"
+    ],
+    "*": [
+      "biome check --no-errors-on-unmatched --files-ignore-unknown=true"
+    ]
   }
 }

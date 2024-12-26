@@ -21,13 +21,8 @@
     "react-dom": "^19.0.0",
     "typescript": "^5.6.3"
   },
-  "files": [
-    "dist",
-    "assets"
-  ],
-  "maintainers": [
-    "tangtaue"
-  ],
+  "files": ["dist", "assets"],
+  "maintainers": ["tangtaue"],
   "simple-git-hooks": {
     "commit-msg": "node scripts/verify-commit.js",
     "pre-commit": "pnpm lint-staged"

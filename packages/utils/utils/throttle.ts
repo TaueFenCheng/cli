@@ -1,18 +1,17 @@
 /**
- * 
- * @param fn 
+ *
+ * @param fn
  * @param delay
- * @description 节流 
- * @returns 
+ * @description 节流
+ * @returns
  */
-export function throttle(fn, delay) {
-    let pre = Date.now()
-    return function (...args) {
-        const _this = this
-        let now = Date.now()
-        if (now - pre > delay) {
-            fn.apply(_this, args)
-            pre = now
-        }
+export function throttle(fn: Function, delay: number) {
+  let pre = Date.now();
+  return function (...args: any) {
+    const now = Date.now();
+    if (now - pre > delay) {
+      fn.apply(this, args);
+      pre = now;
     }
+  };
 }

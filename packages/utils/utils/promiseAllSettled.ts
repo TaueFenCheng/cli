@@ -1,6 +1,6 @@
-export function allSettled(promises) {
+export function allSettled(promises: any[]) {
   return new Promise((resolve) => {
-    const results = [];
+    const results: any[] = [];
     let completedCount = 0;
 
     promises.forEach((promise, index) => {

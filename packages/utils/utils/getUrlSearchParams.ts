@@ -6,7 +6,7 @@
 export function getUrlSearchParams(url: string, key: string) {
   const search = url.split("?")[1];
   const obs = search.split("&");
-  let map = {};
+  const map = {} as Record<string, any>;
   for (const item of obs) {
     const [key, value] = item.split("=");
     map[key] = value;

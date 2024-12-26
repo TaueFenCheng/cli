@@ -1,1 +1,1 @@
-export { useLatest } from './useLatest'
+export { useLatest } from "./useLatest";

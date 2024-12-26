@@ -52,21 +52,21 @@ function findMaxConsecutiveChar(str) {
 
 /**
  * @description 数组转树结构
- * @param {*} items 
- * @returns 
+ * @param {*} items
+ * @returns
  */
 export function traverse(items = []) {
-  const map = {}
+  const map = {};
   items.forEach((item) => {
-    map[item.parentid] = { ...item, children: [] }
-  })
-  const root = []
+    map[item.parentid] = { ...item, children: [] };
+  });
+  const root = [];
   items.forEach((item) => {
     if (!item.parentid) {
-      root.push(map[item.id])
+      root.push(map[item.id]);
     } else {
-      map[item.parentid].children.push(map[item.id])
+      map[item.parentid].children.push(map[item.id]);
     }
-  })
-  return root
+  });
+  return root;
 }

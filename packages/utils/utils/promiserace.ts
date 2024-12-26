@@ -1,4 +1,4 @@
-export function promiseRace(promises) {
+export function promiseRace(promises: any[]) {
   return new Promise((resolve, reject) => {
     // 遍历所有传入的 Promise
     for (const promise of promises) {

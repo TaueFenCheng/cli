@@ -17,35 +17,36 @@
 // 输入: temperatures = [30,60,90]
 // 输出: [1,1,0]
 
-var dailyTemperatures = function(temperatures) {
-    // let a  = []
-    // function findIndex(curtep,curi,targetArr){
-    //     const isHight = targetArr.findIndex((item)=>item>curtep)
-    //     if(isHight){
-    //         return curi + isHight
-    //     }
-    //     return 0
-    // }
-    // for(let i=0;i<temperatures.length;i++){
-    //     let temp = temperatures[i]
-    //     let idx = i !== temperatures.length -1 ?  findIndex(temp,i+1,temperatures.slice(i+1)):0
-    //     a.push(idx)
-    // }
-    // return a
+var dailyTemperatures = (temperatures) => {
+  // let a  = []
+  // function findIndex(curtep,curi,targetArr){
+  //     const isHight = targetArr.findIndex((item)=>item>curtep)
+  //     if(isHight){
+  //         return curi + isHight
+  //     }
+  //     return 0
+  // }
+  // for(let i=0;i<temperatures.length;i++){
+  //     let temp = temperatures[i]
+  //     let idx = i !== temperatures.length -1 ?  findIndex(temp,i+1,temperatures.slice(i+1)):0
+  //     a.push(idx)
+  // }
+  // return a
 
+  // 单调栈
+  const n = temperatures.length;
+  const anwser = new Array(n).fill(0);
+  const stack = [];
 
-    // 单调栈   
-    let n = temperatures.length
-    let anwser = new Array(n).fill(0)
-    let stack = []
-
-    for(let i=0;i<n;i++){
-        while(stack.length > 0 && temperatures[i] > temperatures[stack[stack.length -1]]){
-            let index = stack.pop()
-            anwser[index] = i-index
-        }
-        stack.push(i)
+  for (let i = 0; i < n; i++) {
+    while (
+      stack.length > 0 &&
+      temperatures[i] > temperatures[stack[stack.length - 1]]
+    ) {
+      const index = stack.pop();
+      anwser[index] = i - index;
     }
-    return anwser
-
+    stack.push(i);
+  }
+  return anwser;
 };

@@ -5,8 +5,8 @@
  */
 
 export function memorize(fn: Function) {
-  const map = {};
-  return (...args) => {
+  const map = {} as Record<string, any>;
+  return (...args: any[]) => {
     const key = JSON.stringify(args);
     if (!map[key]) {
       map[key] = fn(...args);

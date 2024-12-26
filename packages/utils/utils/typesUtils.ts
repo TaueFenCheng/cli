@@ -30,7 +30,7 @@ export const remove = <T>(arr: T[], el: T): void => {
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 export const hasOwn = (
   val: object,
-  key: string | symbol
+  key: string | symbol,
 ): key is keyof typeof val => hasOwnProperty.call(val, key);
 
 export const isArray: typeof Array.isArray = Array.isArray;
@@ -77,7 +77,7 @@ export const isIntegerKey = (key: unknown): boolean =>
   isString(key) &&
   key !== "NaN" &&
   key[0] !== "-" &&
-  "" + parseInt(key, 10) === key;
+  "" + Number.parseInt(key, 10) === key;
 
 // export const isReservedProp: (key: string) => boolean = /*@__PURE__*/ makeMap(
 //   // the leading comma is intentional so empty string "" is also included
@@ -107,7 +107,7 @@ const camelizeRE = /-(\w)/g;
 export const camelize: (str: string) => string = cacheStringFunction(
   (str: string): string => {
     return str.replace(camelizeRE, (_, c) => (c ? c.toUpperCase() : ""));
-  }
+  },
 );
 
 const hyphenateRE = /\B([A-Z])/g;
@@ -115,7 +115,7 @@ const hyphenateRE = /\B([A-Z])/g;
  * @private
  */
 export const hyphenate: (str: string) => string = cacheStringFunction(
-  (str: string) => str.replace(hyphenateRE, "-$1").toLowerCase()
+  (str: string) => str.replace(hyphenateRE, "-$1").toLowerCase(),
 );
 
 /**
@@ -130,12 +130,12 @@ export const capitalize: <T extends string>(str: T) => Capitalize<T> =
  * @private
  */
 export const toHandlerKey: <T extends string>(
-  str: T
+  str: T,
 ) => T extends "" ? "" : `on${Capitalize<T>}` = cacheStringFunction(
   <T extends string>(str: T) => {
     const s = str ? `on${capitalize(str)}` : ``;
     return s as T extends "" ? "" : `on${Capitalize<T>}`;
-  }
+  },
 );
 
 // compare whether a value has changed, accounting for NaN.
@@ -152,7 +152,7 @@ export const def = (
   obj: object,
   key: string | symbol,
   value: any,
-  writable = false
+  writable = false,
 ): void => {
   Object.defineProperty(obj, key, {
     configurable: true,
@@ -167,7 +167,7 @@ export const def = (
  * This is used for the .number modifier in v-model
  */
 export const looseToNumber = (val: any): any => {
-  const n = parseFloat(val);
+  const n = Number.parseFloat(val);
   return isNaN(n) ? val : n;
 };
 
@@ -176,7 +176,7 @@ export const looseToNumber = (val: any): any => {
  * "123-foo" will be returned as-is
  */
 export const toNumber = (val: any): any => {
-  const n = isString(val) ? Number(val) : NaN;
+  const n = isString(val) ? Number(val) : Number.NaN;
   return isNaN(n) ? val : n;
 };
 
@@ -191,12 +191,12 @@ export const getGlobalThis = (): any => {
       typeof globalThis !== "undefined"
         ? globalThis
         : typeof self !== "undefined"
-        ? self
-        : typeof window !== "undefined"
-        ? window
-        : typeof global !== "undefined"
-        ? global
-        : {})
+          ? self
+          : typeof window !== "undefined"
+            ? window
+            : typeof global !== "undefined"
+              ? global
+              : {})
   );
 };
 
@@ -212,7 +212,7 @@ export function genCacheKey(source: string, options: any): string {
   return (
     source +
     JSON.stringify(options, (_, val) =>
-      typeof val === "function" ? val.toString() : val
+      typeof val === "function" ? val.toString() : val,
     )
   );
 }

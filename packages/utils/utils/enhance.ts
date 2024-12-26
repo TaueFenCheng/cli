@@ -5,7 +5,7 @@
 export function enhance() {
   const map = new Map();
   // 主调用函数
-  const enhanceFunction = (...args) => {
+  const enhanceFunction = (...args: any[]) => {
     const key = args.map((arg) => typeof arg).join("-");
     console.log(key, "--------");
     const fn = map.get(key);
@@ -24,8 +24,8 @@ export function enhance() {
    * @returns
    */
   enhanceFunction.register =
-    (...args) =>
-    (fn) => {
+    (...args: any[]) =>
+    (fn: any) => {
       const key = args.join("-");
       console.log(key);
       // map[key] = fn

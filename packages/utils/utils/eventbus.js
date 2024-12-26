@@ -40,7 +40,7 @@ class EventBus {
 // 使用示例
 const eventBus = new EventBus();
 
-export default eventBus
+export default eventBus;
 
 // 订阅事件
 const onMessage = (msg) => {

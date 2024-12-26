@@ -12,7 +12,7 @@ export function deepClone(obj, hash = new WeakMap()) {
 
   if (typeof obj !== "object") return obj;
   if (hash.has(obj)) return hash.get(obj);
-  let cloneObj = new obj.constructor(); // 负责拷贝的类型
+  const cloneObj = new obj.constructor(); // 负责拷贝的类型
 
   hash.set(obj, cloneObj);
 

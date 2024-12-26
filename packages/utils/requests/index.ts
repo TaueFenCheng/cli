@@ -34,7 +34,7 @@ const AxiosGet = async (url: string, params: AxiosRequestConfig) => {
 const AxiosPost = async (
   url: string,
   data: Record<string, any>,
-  params: AxiosRequestConfig
+  params: AxiosRequestConfig,
 ) => {
   return axios
     .post(url, data, params)
@@ -85,7 +85,7 @@ class BizRequest {
       | "PATCH"
       | "OPTIONS" = "GET",
     headers: Record<string, any> = {},
-    params: CreateAxiosDefaults = {}
+    params: CreateAxiosDefaults = {},
   ) {
     this.baseUrl = this.isEnumType(baseUrl)
       ? this.preGetBusinessUrl(baseUrl)
@@ -133,17 +133,15 @@ class BizRequest {
    */
   requestInterceptor(
     requestFn: <T>(c: T) => T | Promise<T>,
-    requestErr: <T>(c: T) => T | Promise<T>
+    requestErr: <T>(c: T) => T | Promise<T>,
   ) {
     // Add a request interceptor
     this.instance.interceptors.request.use(
-      function (config) {
-        return requestFn(config);
-      },
-      function (error) {
+      (config) => requestFn(config),
+      (error) => {
         // message.error(error)
         return requestErr(error);
-      }
+      },
     );
   }
 
@@ -154,16 +152,12 @@ class BizRequest {
    */
   responseInterceptor(
     responseFn: <T>(c: T) => T | Promise<T>,
-    responseErr: <T>(c: T) => T | Promise<T>
+    responseErr: <T>(c: T) => T | Promise<T>,
   ) {
     // Add a response interceptor
     this.instance.interceptors.response.use(
-      function (response) {
-        return responseFn(response);
-      },
-      function (error) {
-        return responseErr(error);
-      }
+      (response) => responseFn(response),
+      (error) => responseErr(error),
     );
   }
 
@@ -212,7 +206,7 @@ class BizRequest {
   async post(
     url: string,
     data: Record<string, any>,
-    config: AxiosRequestConfig = {}
+    config: AxiosRequestConfig = {},
   ) {
     const headers = config.headers;
     return this.instanceWithAxios().post(
@@ -222,7 +216,7 @@ class BizRequest {
         headers: {
           ...headers,
         },
-      }
+      },
     );
   }
 }

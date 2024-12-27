@@ -55,3 +55,34 @@ var permute2 = (nums) => {
   brack([]);
   return res;
 };
+
+
+
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function(nums) {
+  let resd = []
+  let map = new Map()
+  function per(res){
+      if(res.length === nums.length){
+          resd.push([...res])
+          return resd
+      }
+      for(let i=0;i<nums.length;i++){
+          if(map.get(nums[i])){
+              continue;
+          }
+          res.push(nums[i])
+          map.set(nums[i],true)
+          per(res)
+          // map.set(i,false)
+          map.delete(nums[i])
+          res.pop()
+      }
+  }
+  per([])
+  return resd
+};

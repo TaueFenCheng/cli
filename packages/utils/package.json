@@ -37,7 +37,7 @@
   },
   "lint-staged": {
     "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
-      "pnpm dlx biome lint --write ."
+      "pnpm dlx biome check --write ."
     ]
   }
 }

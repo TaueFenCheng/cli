@@ -34,7 +34,7 @@ function limitConcurrency(promises, concurrencyLimit) {
 }
 
 function promiseLimit(promises, limit) {
-  let res = [];
+  const res = [];
   let index = 0;
   let activeIndex = 0;
   return new Promise((resolve, reject) => {
@@ -43,15 +43,15 @@ function promiseLimit(promises, limit) {
         resolve(res);
         return;
       }
-        while (activeIndex < limit && index < promises.length) {
-            activeIndex++;
-            promises[index++]()
-            .then((data) => {
-                res[index] = data;
-            })
-            .catch((err) => {
-                reject(err);
-            })
+      while (activeIndex < limit && index < promises.length) {
+        activeIndex++;
+        promises[index++]()
+          .then((data) => {
+            res[index] = data;
+          })
+          .catch((err) => {
+            reject(err);
+          })
           .finally(() => {
             activeIndex--;
             exec(); // 继续执行下一个promise

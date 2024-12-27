@@ -1,7 +1,7 @@
 /**
  * @description 层序遍历二叉树
- * @param {*} root 
- * @returns 
+ * @param {*} root
+ * @returns
  */
 function levelBinaryTree(root) {
   if (!root) {

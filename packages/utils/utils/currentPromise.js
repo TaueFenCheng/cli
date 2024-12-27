@@ -43,15 +43,15 @@ function promiseLimit(promises, limit) {
         resolve(res);
         return;
       }
-      while (activeIndex < limit && index < promises.length) {
-        activeIndex++;
-        promises[index++]()
-          .then((data) => {
-            res[index] = data;
-          })
-          .catch((err) => {
-            reject(err);
-          })
+        while (activeIndex < limit && index < promises.length) {
+            activeIndex++;
+            promises[index++]()
+            .then((data) => {
+                res[index] = data;
+            })
+            .catch((err) => {
+                reject(err);
+            })
           .finally(() => {
             activeIndex--;
             exec(); // 继续执行下一个promise

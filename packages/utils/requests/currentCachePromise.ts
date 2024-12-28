@@ -10,7 +10,7 @@ import qs from "qs";
 const cacheMap = new Map();
 
 // 存储缓存当前状态
-const statusMap = new Map<string, "pending" | "complete">();
+const statusMap = new Map<string, "pending" | "complete" | "failure">();
 
 // 定义一下回调的格式
 interface RequestCallback {
@@ -35,6 +35,7 @@ export function sendRequest(request: MyRequestConfig) {
 
   // 判断是否需要缓存
   if (request.needCache) {
+    //! 一个cache map 判断当前的请求状态  是否已完成 或者 pending状态 或者失败状态
     if (statusMap.has(cacheKey)) {
       const currentStatus = statusMap.get(cacheKey);
 
@@ -61,6 +62,9 @@ export function sendRequest(request: MyRequestConfig) {
           }
         });
       }
+      if (currentStatus === "failure") {
+        return Promise.reject("当前请求失败");
+      }
     }
 
     statusMap.set(cacheKey, "pending");
@@ -75,6 +79,7 @@ export function sendRequest(request: MyRequestConfig) {
       } else {
         // 不成功的情况下删掉 statusMap 中的状态，能让下次请求重新请求
         statusMap.delete(cacheKey);
+        statusMap.set(cacheKey, "failure");
       }
       // 这里触发resolve的回调函数
       if (callbackMap.has(cacheKey)) {

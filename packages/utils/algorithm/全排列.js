@@ -60,7 +60,7 @@ var permute2 = (nums) => {
  * @param {number[]} nums
  * @return {number[][]}
  */
-var permute = (nums) => {
+var permute3 = (nums) => {
   const resd = [];
   const map = new Map();
   function per(res) {

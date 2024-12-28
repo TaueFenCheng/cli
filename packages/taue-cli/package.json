@@ -12,7 +12,11 @@
 		"lint:fix": "pnpm biome check --fix --unsafe"
 	},
 	"bin": {
-		"taueCli": "./bin/index.js"
+		"taue-cli": "./bin/index.js"
+	},
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
 	},
 	"engines": {
 		"node": ">=16.0.0"
@@ -22,8 +26,8 @@
 		"package.json",
 		"types"
 	],
-	"keywords": [],
-	"author": "",
+	"keywords": ["cli","project"],
+	"author": "tangtaue",
 	"license": "ISC",
 	"dependencies": {
 		"chalk": "4.1.2",

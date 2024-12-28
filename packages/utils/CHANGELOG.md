@@ -1,5 +1,11 @@
 # utils
 
+## 2.0.1
+
+### Patch Changes
+
+- 功能提交
+
 ## 2.0.0
 
 ### Major Changes

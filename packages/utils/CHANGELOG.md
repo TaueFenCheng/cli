@@ -1,5 +1,11 @@
 # utils
 
+## 2.0.2
+
+### Patch Changes
+
+- 格式调整 biome 删除无用文件
+
 ## 2.0.1
 
 ### Patch Changes

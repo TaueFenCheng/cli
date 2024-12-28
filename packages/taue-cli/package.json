@@ -1,0 +1,45 @@
+{
+	"name": "@taue/cli",
+	"version": "1.0.3",
+	"description": "",
+	"main": "./dist/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "tsup",
+		"test:pkg": "tsup && node bin/index.js",
+		"lint": "pnpm biome check --write ./",
+		"format": "pnpm biome format --write ./",
+		"lint:fix": "pnpm biome check --fix --unsafe"
+	},
+	"bin": {
+		"taueCli": "./bin/index.js"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"files": [
+		"bin",
+		"package.json",
+		"types"
+	],
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"chalk": "4.1.2",
+		"download-git-repo": "^3.0.2",
+		"figlet": "^1.8.0",
+		"inquirer": "^12.0.1",
+		"ora": "5.1.0",
+		"semver": "^7.6.2",
+		"typescript": "^5.6.3",
+		"yargs": "^17.7.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/figlet": "^1.7.0",
+		"@types/node": "^22.9.0",
+		"npm-run-all": "^4.1.5",
+		"tsup": "^8.3.5"
+	}
+}

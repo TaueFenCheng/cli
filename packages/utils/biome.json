@@ -40,7 +40,8 @@
         "useTemplate": "off",
         "useSingleVarDeclarator": "off"
       }
-    }
+    },
+    "ignore": ["**/node_modules/**"]
   },
   "javascript": {
     "formatter": {

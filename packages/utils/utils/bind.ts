@@ -4,7 +4,7 @@
  * @bind 第二个参数是一系列数据  不是数组
  * @alias 箭头函数没有arguments 属性 
  */
-Function.prototype.bind = (_context)=> {
+Function.prototype.bind = function(_context) {
   const args1 = Array.prototype.slice.apply(arguments, 1);
   return function () {
     const args2 = Array.prototype.slice.apply(arguments);

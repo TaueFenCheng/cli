@@ -18,12 +18,18 @@
   "dependencies": {
     "axios": "^1.7.7",
     "es-toolkit": "^1.26.1",
+    "qs": "^6.13.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "typescript": "^5.6.3"
   },
-  "files": ["dist", "assets"],
-  "maintainers": ["tangtaue"],
+  "files": [
+    "dist",
+    "assets"
+  ],
+  "maintainers": [
+    "tangtaue"
+  ],
   "simple-git-hooks": {
     "commit-msg": "node scripts/verify-commit.js",
     "pre-commit": "pnpm lint-staged"

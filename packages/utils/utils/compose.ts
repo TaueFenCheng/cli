@@ -23,3 +23,5 @@ export function compose2(fns:any[]){
     },args)
   }
 }
+
+

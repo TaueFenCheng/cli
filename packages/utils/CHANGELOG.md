@@ -1,5 +1,11 @@
 # utils
 
+## 2.0.3
+
+### Patch Changes
+
+- promise 并发
+
 ## 2.0.2
 
 ### Patch Changes

@@ -4,13 +4,19 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=development rspack serve",
-    "build": "cross-env NODE_ENV=production rspack build"
+    "build": "cross-env NODE_ENV=production rspack build",
+    "lint": "pnpm biome lint --write ./src",
+    "format": "pnpm biome format --write ./src"
   },
   "dependencies": {
+    "@module-federation/enhanced": "^0.8.8",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router": "^7.1.1",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@rspack/cli": "^1.1.8",
     "@rspack/core": "^1.1.8",
     "@rspack/plugin-react-refresh": "1.0.0",

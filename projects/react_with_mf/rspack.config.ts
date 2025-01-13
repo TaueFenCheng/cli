@@ -28,10 +28,32 @@ export default defineConfig({
     publicPath: "http://localhost:2000/",
   },
   module: {
+    // 启用默认导出方式
+    parser: {
+      'css/auto': {
+        namedExports: false,
+      },
+    },
     rules: [
       {
         test: /\.svg$/,
         type: "asset",
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: [
+          {
+            loader: 'sass-loader',
+            options: {
+              // 同时使用 `modern-compiler` 和 `sass-embedded` 可以显著提升构建性能
+              // 需要 `sass-loader >= 14.2.1`
+              api: 'modern-compiler',
+              implementation: require.resolve('sass-embedded'),
+            },
+          },
+        ],
+        // 如果你需要将 '*.module.(sass|scss)' 视为 CSS Modules 那么将 'type' 设置为 'css/auto' 否则设置为 'css'
+        type: 'css/auto',
       },
       {
         test: /\.(jsx?|tsx?)$/,
@@ -79,15 +101,15 @@ export default defineConfig({
     //   // 	singleton: true,
     //   //   },
     // }),
-	new rspack.container.ModuleFederationPlugin({
-		// options
-		name: "federation_provider",
-		filename: "testmf.js",
-		exposes: {
-		  "./button": "./src/button.tsx",
-		},
-		// shared: ["react", "react-dom"],
-	  }),
+    new rspack.container.ModuleFederationPlugin({
+      // options
+      name: "federation_provider",
+      filename: "testmf.js",
+      exposes: {
+        "./button": "./src/components/button.tsx",
+      },
+      // shared: ["react", "react-dom"],
+    }),
   ].filter(Boolean),
   optimization: {
     minimizer: [

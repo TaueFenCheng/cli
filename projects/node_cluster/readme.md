@@ -20,3 +20,8 @@ number 将应用程序分布在 CPU number 上
 ### cluster 集群
 
 https://leanpub.com/thenodejsclustermodule/read#leanpub-auto-understanding-the-nodejs-cluster-module
+
+
+#### redis 连接 默认连接
+
+https://github.com/redis/ioredis   github 仓库地址

@@ -1,31 +1,49 @@
 {
   "name": "web_performance_sdk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
-  "author": {
-    "name": "tangjiaqiang"
-  },
+  "author": "tangtaue",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     }
   },
-  "module": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TaueFenCheng/cli.git"
+  },
   "scripts": {
     "build": "rslib build",
-    "dev": "rslib build --watch"
+    "dev": "rslib build --watch",
+    "lint": "biome check .",
+    "lint:write": "biome check . --write",
+    "bump": "npx bumpp"
   },
   "devDependencies": {
-    "@rslib/core": "^0.2.0",
-    "@types/node": "^22.8.1",
+    "@biomejs/biome": "1.9.4",
+    "@rslib/core": "0.3.1",
+    "@types/node": "^22.10.2",
     "typescript": "^5.6.3"
   },
+  "packageManager": "pnpm@9.15.1",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm run lint"
+  },
   "dependencies": {
+    "rslog": "^1.2.3",
+    "simple-git-hooks": "^2.11.0",
     "web-vitals": "^4.2.4"
   }
 }

@@ -1,5 +1,11 @@
 # utils
 
+## 2.0.7
+
+### Patch Changes
+
+- sdk update && utils biome update
+
 ## 2.0.6
 
 ### Patch Changes

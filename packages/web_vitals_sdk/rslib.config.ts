@@ -9,11 +9,11 @@ export default defineConfig({
       dts: false,
       autoExtension: false,
       output: {
-        target: 'web',
+        target: "web",
         filename: {
-          js: '[name].mjs'
-        }
-      }
+          js: "[name].mjs",
+        },
+      },
     },
     {
       format: "umd",
@@ -21,25 +21,25 @@ export default defineConfig({
       autoExtension: false,
       dts: true,
       output: {
-        target: 'web',
+        target: "web",
         filename: {
-          js: '[name].umd.js'
-        }
-      }
+          js: "[name].umd.js",
+        },
+      },
     },
     {
       format: "cjs",
       syntax: "es2021",
-      bundle:true
+      bundle: true,
     },
   ],
   source: {
     entry: {
-      index: './src/index.ts'
-    }
+      index: "./src/index.ts",
+    },
   },
   output: {
     target: "node",
-    minify:true
+    minify: true,
   },
 });

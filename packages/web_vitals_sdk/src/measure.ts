@@ -1,4 +1,4 @@
-import { EntryType } from "perf_hooks";
+import type { EntryType } from "node:perf_hooks";
 
 let fcp;
 let tti;

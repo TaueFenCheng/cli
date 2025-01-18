@@ -4,7 +4,7 @@
  */
 
 function converter(obj = {}) {
-  let newObj = {};
+  const newObj = {};
   for (const key in obj) {
     // if (Object.prototype.hasOwnProperty.call(obj, key)) {
     if (Object.hasOwn(obj, key)) {
@@ -18,42 +18,50 @@ function converter(obj = {}) {
   return newObj;
 }
 
-
-let arr = [{
-  id: 1, name: 'JJ1',
-}, {
-  id: 2, name: 'JJ2',
-}, {
-  id: 1, name: 'JJ1',
-}, {
-  id: 4, name: 'JJ4',
-}, {
-  id: 2, name: 'JJ2',
-}]
-
+const arr = [
+  {
+    id: 1,
+    name: "JJ1",
+  },
+  {
+    id: 2,
+    name: "JJ2",
+  },
+  {
+    id: 1,
+    name: "JJ1",
+  },
+  {
+    id: 4,
+    name: "JJ4",
+  },
+  {
+    id: 2,
+    name: "JJ2",
+  },
+];
 
 /**
- * 
+ *
  * @description 数组合并 重复的key值 不合并
- * @param {*} arr 
- * @returns 
+ * @param {*} arr
+ * @returns
  */
 const unique = (arr) => {
-  let map = new Map();
+  const map = new Map();
   return arr.reduce((prev, cur) => {
     // 当前map中没有，说明可以和上一个合并
     if (!map.has(cur.id)) {
-      map.set(cur.id, true)
-      return [...prev, cur]
+      map.set(cur.id, true);
+      return [...prev, cur];
     } else {
       // 已经被标记的就不用合并了
-      return prev
+      return prev;
     }
-  }, [])
-}
+  }, []);
+};
 
-console.log(unique(arr), 'unique');
-
+console.log(unique(arr), "unique");
 
 const a = converter({
   a_e_f: {
@@ -67,5 +75,4 @@ const a = converter({
 // _f f kkkkkkkkkkkkkk
 // { aEF: { s_s_g: 2634834 } }
 
-
-export default converter
+export default converter;

@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios, { type AxiosRequestConfig } from "axios";
 import qs from "qs";
 
 /**
@@ -104,7 +104,7 @@ export function sendRequest(request: MyRequestConfig) {
         callbackMap.delete(cacheKey);
       }
       return Promise.reject(error);
-    }
+    },
   );
 }
 
@@ -127,7 +127,7 @@ export function testApi() {
     },
     (error) => {
       console.error("error1:", error);
-    }
+    },
   );
   getArticleList({
     page: 1,
@@ -138,6 +138,6 @@ export function testApi() {
     },
     (error) => {
       console.error("error2:", error);
-    }
+    },
   );
 }

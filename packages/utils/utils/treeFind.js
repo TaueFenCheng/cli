@@ -17,11 +17,11 @@ const treeData = [
     ],
   },
 ];
-let path = findNum(10, treeData);
+const path = findNum(10, treeData);
 console.log("path", path);
 
 /**
- * @description 树路径查找  
+ * @description 树路径查找
  * @description dfs  入栈  回溯  出栈
  * @param {} target
  * @param {*} data
@@ -35,13 +35,13 @@ const findNum = (target, data) => {
     data.forEach((item) => {
       path.push(item.id); // 入栈
       if (item.id === target) {
-        // 找到 
+        // 找到
         result = JSON.parse(JSON.stringify(path));
       } else {
         const children = item.children || [];
         // DFS 带着路径和  children 继续dfs 查找
         DG(path, children);
-        //! 没找到 回溯 
+        //! 没找到 回溯
         path.pop();
       }
     });

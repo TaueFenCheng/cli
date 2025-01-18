@@ -1,5 +1,17 @@
 # utils
 
+## 2.0.5
+
+### Patch Changes
+
+- pkg git config 完善
+
+## 2.0.4
+
+### Patch Changes
+
+- pkg 导出完善 git hooks
+
 ## 2.0.3
 
 ### Patch Changes

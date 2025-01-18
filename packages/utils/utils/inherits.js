@@ -4,7 +4,6 @@ function inherits(SuperType, SubType) {
   SubType.prototype = pro;
 }
 
-
 /**
  * event emitter
  */
@@ -38,4 +37,4 @@ class Event {
     );
   }
 }
-F  
+F;

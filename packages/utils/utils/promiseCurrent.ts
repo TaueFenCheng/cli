@@ -9,7 +9,7 @@ async function promiseWithConcurrencyLimit(tasks, limit) {
       await Promise.race(executing);
       executing.splice(
         executing.findIndex((p) => p === promise),
-        1
+        1,
       );
     }
   }

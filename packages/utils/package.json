@@ -1,7 +1,7 @@
 {
   "name": "utils_pkg",
-  "version": "2.0.3",
-  "description": "",
+  "version": "2.0.5",
+  "description": "工具包utils",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,10 +9,11 @@
     "dev": "tsup index.ts --watch",
     "build": "tsup",
     "lint": "biome lint --write .",
-    "lint:write": "biome check . --write",
-    "format": "biome format --write ."
+    "check": "biome check --write .",
+    "format": "biome format --write .",
+    "prepare": "simple-git-hooks && pnpm run build"
   },
-  "keywords": [],
+  "keywords": ["utils"],
   "author": "tangtaue",
   "license": "ISC",
   "dependencies": {
@@ -23,16 +24,18 @@
     "react-dom": "^19.0.0",
     "typescript": "^5.6.3"
   },
-  "files": [
-    "dist",
-    "assets"
-  ],
-  "maintainers": [
-    "tangtaue"
-  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "assets"],
+  "maintainers": ["tangtaue"],
   "simple-git-hooks": {
     "commit-msg": "node scripts/verify-commit.js",
-    "pre-commit": "npm run lint:write"
+    "pre-commit": "pnpm lint-staged"
   },
   "packageManager": "pnpm@9.15.1",
   "devDependencies": {
@@ -47,5 +50,9 @@
     "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
       "pnpm dlx biome check --write ."
     ]
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

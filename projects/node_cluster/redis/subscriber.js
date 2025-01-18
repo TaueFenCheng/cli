@@ -1,7 +1,9 @@
 // subscriber.js
 
 const Redis = require("ioredis");
-const redis = new Redis();
+// const redis = new Redis();
+const redis = new Redis(6379,'127.0.0.1');
+
 
 redis.subscribe("my-channel-1", "my-channel-2", (err, count) => {
     if (err) {

@@ -1,6 +1,6 @@
 
 const Redis = require("ioredis");
-const redis = new Redis();
+const redis = new Redis(6379,'127.0.0.1');
 setInterval(() => {
     const message = { foo: Math.random() };
     // Publish to my-channel-1 or my-channel-2 randomly.

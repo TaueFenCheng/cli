@@ -1,5 +1,11 @@
 # utils
 
+## 2.0.6
+
+### Patch Changes
+
+- update pkg json config
+
 ## 2.0.5
 
 ### Patch Changes

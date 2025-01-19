@@ -1,5 +1,11 @@
 # utils
 
+## 2.0.9
+
+### Patch Changes
+
+- update readme.md
+
 ## 2.0.8
 
 ### Patch Changes

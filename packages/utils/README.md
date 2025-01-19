@@ -1,3 +1,4 @@
 ## 工具包
 
-![list](./assets/1735090095601.jpg "方法列表")
+
+utils promise request 判断类型 发布订阅 debounce throttle eventbus memorize 等

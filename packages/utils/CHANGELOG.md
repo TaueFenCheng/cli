@@ -1,5 +1,11 @@
 # utils
 
+## 2.0.8
+
+### Patch Changes
+
+- update utils functions and logger
+
 ## 2.0.7
 
 ### Patch Changes

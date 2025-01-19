@@ -1,3 +1,6 @@
+export { logger } from "../logger";
+export { isValueType, OriginTypes, variableTypeDetection } from "./types";
+export { nativeTryCatch } from "./nativeTryCatch";
 export { deepClone } from "./deepClone";
 export { enhance } from "./enhance";
 export { _curry } from "./curry";

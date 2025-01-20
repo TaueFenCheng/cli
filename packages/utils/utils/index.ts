@@ -15,4 +15,18 @@ export * from "./retryPromise";
 // 類型判斷
 export * from "./typesUtils";
 
+export {
+    isString,
+    isNumber,
+    isBoolean,
+    isNull,
+    isFunction,
+    isObject,
+    isUndefined,
+    isDate,
+    isRegExp,
+    isDef,
+    isWindow,
+    isBrowser
+} from "./is";
 export { default as eventBus } from "./eventbus.js";

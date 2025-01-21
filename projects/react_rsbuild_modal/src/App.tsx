@@ -12,12 +12,12 @@ const App = () => {
         const root = createRoot(container as HTMLElement);
         setModalInstance(root);
         //! todo  弹窗实现
-        const uu = createPortal(
+        const portalNode = createPortal(
           node,
           document.getElementById(id) as HTMLElement
         );
         //! 渲染组件
-        root.render(uu);
+        root.render(portalNode);
       }
     };
     const destroy = () => {

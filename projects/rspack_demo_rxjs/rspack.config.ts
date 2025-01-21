@@ -53,20 +53,20 @@ export default defineConfig({
         test: /\.svg$/,
         type: "asset",
       },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            ...commonPx2Rem,
-          },
-        ],
-      },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     {
+      //       ...commonPx2Rem,
+      //     },
+      //   ],
+      // },
       {
         test: /\.s[a|c]ss$/,
         use: [
-          {
-            ...commonPx2Rem,
-          },
+          // {
+          //   ...commonPx2Rem,
+          // },
           {
             loader: "sass-loader",
             options: {

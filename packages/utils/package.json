@@ -11,10 +11,8 @@
     "lint": "biome lint --write .",
     "check": "biome check --write .",
     "format": "biome format --write ."
-    },
-  "keywords": [
-    "utils"
-  ],
+  },
+  "keywords": ["utils"],
   "author": "tangtaue",
   "license": "MIT",
   "dependencies": {
@@ -32,13 +30,8 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": [
-    "dist",
-    "assets"
-  ],
-  "maintainers": [
-    "tangtaue"
-  ],
+  "files": ["dist", "assets"],
+  "maintainers": ["tangtaue"],
   "simple-git-hooks": {
     "commit-msg": "node scripts/verify-commit.js",
     "pre-commit": "pnpm lint-staged"

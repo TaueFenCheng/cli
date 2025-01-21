@@ -16,17 +16,17 @@ export * from "./retryPromise";
 export * from "./typesUtils";
 
 export {
-    isString,
-    isNumber,
-    isBoolean,
-    isNull,
-    isFunction,
-    isObject,
-    isUndefined,
-    isDate,
-    isRegExp,
-    isDef,
-    isWindow,
-    isBrowser
+  isString,
+  isNumber,
+  isBoolean,
+  isNull,
+  isFunction,
+  isObject,
+  isUndefined,
+  isDate,
+  isRegExp,
+  isDef,
+  isWindow,
+  isBrowser,
 } from "./is";
 export { default as eventBus } from "./eventbus.js";

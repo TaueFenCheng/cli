@@ -2,6 +2,12 @@ const os = require("os");
 const cluster = require("cluster");
 const cpuLength = os.cpus().length;
 const express = require("express");
+const path = require("path");
+
+
+
+// 获取文件名
+console.log(path.basename(__filename),'fffffff')
 
 const port = 8088
 if (cluster.isMaster) {

@@ -1,3 +1,5 @@
+export * as runParallel from "./promiseCurrentcy";
+
 export { logger } from "../logger";
 export { isValueType, OriginTypes, variableTypeDetection } from "./types";
 export { nativeTryCatch } from "./nativeTryCatch";

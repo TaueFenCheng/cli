@@ -11,12 +11,11 @@ console.log(path.basename(__filename),'fffffff')
 
 const port = 8088
 if (cluster.isMaster) {
-    console.log('44444444', cpuLength)
     for (let i = 0; i < cpuLength; i++) {
         cluster.fork();
     }
     cluster.on('online', (worker) => {
-        console.log(worker, '45454')
+        // console.log(worker, '45454')
     })
     cluster.on("exit", (worker, code, signal) => {
         console.log(`worker ${worker.process.pid} died`);
@@ -26,7 +25,7 @@ if (cluster.isMaster) {
     });
 } else { // 子线程   开启多个子线程服务
     const app = express();
-    console.log('5555555555555', process.pid)
+    // console.log('5555555555555', process.pid)
     app.get("/", (req, res) => {
         // console.log(req,'kkkkkk')
         res.send("hello world");

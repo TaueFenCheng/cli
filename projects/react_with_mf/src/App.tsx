@@ -1,6 +1,8 @@
-import { Suspense, useState } from "react";
-import Button from "./components/button";
+import { lazy, Suspense, useState } from "react";
+// import Button from "./components/button";
 import "./App.css";
+
+const Button = lazy(()=> import('./components/button'))
 function App() {
   const [count, setCount] = useState(0);
 

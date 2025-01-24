@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Button from "./components/button";
 import "./App.css";
-
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="App">
-      <h1>Rspack + React + TypeScript</h1>
+      <Suspense fallback={<>loading</>}>
+        <h1>Rspack + React + TypeScript</h1>
+      </Suspense>
       <div className="card">
         <button type="button" onClick={() => setCount((count) => count + 1)}>
           count is {count}

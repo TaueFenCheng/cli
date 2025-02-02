@@ -1,0 +1,10 @@
+{
+  "entry": {
+    "index": "./src/index.tsx"
+  },
+  "analyze": {},
+  "codeSplitting":{
+    "strategy": "auto"
+  },
+  "clean": true
+}

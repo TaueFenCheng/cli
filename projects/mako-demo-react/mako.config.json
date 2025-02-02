@@ -6,5 +6,11 @@
   "codeSplitting":{
     "strategy": "auto"
   },
-  "clean": true
+  "clean": true,
+  "define":{
+    "DEV":"taue"
+  },
+  "output":{
+    "path":"output"
+  }
 }

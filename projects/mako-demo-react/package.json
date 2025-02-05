@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "mako_demo_react",
   "scripts": {
     "dev": "mako build --mode development --watch",
     "build": "mako build --mode production",

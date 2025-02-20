@@ -1,3 +1,4 @@
+
 export { clearNullUndeishObj } from "./clearUndefined";
 
 export * as runParallel from "./promiseCurrentcy";
@@ -19,6 +20,7 @@ export * from "./retryPromise";
 // 類型判斷
 export * from "./typesUtils";
 
+export * from './uuid'
 export {
   isString,
   isNumber,
